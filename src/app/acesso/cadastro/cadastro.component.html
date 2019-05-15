@@ -1,0 +1,64 @@
+<div class="card" style="width: 20rem;">
+  <div class="card-body">
+    <div class="card-title"></div>
+    
+    <form  autocomplete="off" [formGroup]="formCadastro" (ngSubmit)="cadastroUsuario()">
+      <div class="form-group">
+        <input 
+          type="email" 
+          class="form-control" 
+          id="email"
+          formControlName="email"          
+          placeholder="E-mail"         
+        >
+        <small *ngIf="formCadastro.get('email').valid && formCadastro.get('email').touched" class="form-text text-success">Email Válido!</small>
+          <small *ngIf="!formCadastro.get('email').valid && formCadastro.get('email').touched" class="form-text text-danger">Email Inválido!</small>
+      </div>
+      
+      <div class="form-group">
+        <input 
+          type="text"
+          class="form-control" 
+          formControlName="nome"
+          placeholder="Nome completo"          
+        >
+        <small *ngIf="formCadastro.get('nome').valid && formCadastro.get('nome').touched" class="form-text text-success">Nome Válido!</small>
+        <small *ngIf="!formCadastro.get('nome').valid && formCadastro.get('nome').touched" class="form-text text-danger">Nome Inválido!</small>
+      </div>
+      <div class="form-group">
+        <input 
+          type="text"
+          class="form-control" 
+          formControlName="usuario"
+          placeholder="Nome de usuário"         
+        >
+        <small *ngIf="formCadastro.get('usuario').valid && formCadastro.get('usuario').touched" class="form-text text-success">Usuário Válido!</small>
+        <small *ngIf="!formCadastro.get('usuario').valid && formCadastro.get('usuario').touched" class="form-text text-danger">Usuário Inválido!</small>
+      </div>
+      <div class="form-group">
+        <input 
+          type="password"
+          class="form-control" 
+          formControlName="senha"
+          placeholder="Senha"         
+        >
+        <small *ngIf="formCadastro.get('senha').valid && formCadastro.get('senha').touched" class="form-text text-success">Senha Válido!</small>
+        <small *ngIf="!formCadastro.get('senha').valid && formCadastro.get('senha').touched" class="form-text text-danger">Senha Inválido!</small>
+      </div>
+      <button type="submit"  [disabled]="!formCadastro.valid || botaoDisabled ? 'disabled' : '' " class="btn btn-primary btn-sm btn-block">{{ messageButton }}</button>
+    </form>
+    <hr />
+    <p class="small text-danger text-center"> {{messageFeedback}} </p>
+
+    <p class="small text-center">Ao cadastrar-se, você concorda com nossos <b>Termos</b> e <b>Política de Privacidade</b>.</p>
+
+  </div>
+</div>
+<br />
+<div class="card" style="width: 20rem;">
+  <div class="card-body">
+    <p class="card-text">
+      Tem uma conta? <a href="#" (click)="exibirPainelLogin()" class="card-link">Faça login</a>
+    </p> 
+  </div>
+</div>

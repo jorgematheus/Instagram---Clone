@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    background: #FAFAFA;
+}
+
+input.ng-valid.ng-touched {
+    border: 1px solid green;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.toastr-title.to-title { margin-bottom: 0px !important; }
